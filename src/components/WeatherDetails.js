@@ -100,7 +100,6 @@ air
         <div className="card1" key={i}>
            <div className="dates">
             <p>{new Date(a.datetime.split('-')[0], a.datetime.split('-')[1]-1,a.datetime.split('-')[2]).toString().split(' ')[0]}</p> 
-            <span>{a.datetime.split('-')[2]} {new Date(a.datetime.split('-')[0], a.datetime.split('-')[1]-1).toString().split(' ')[1]}</span>
            </div>
 
             <div className="deg">

@@ -4,7 +4,6 @@
 
     .locations{
         cursor: pointer;
-        background: rgb(17, 17, 17);
         display: flex;
         gap: 10px;
         padding: 10px;
@@ -36,9 +35,9 @@
     z-index: 1000;
     top:80px;
     right:0;
-    background: rgb(17, 17, 17);
+    background: rgba(123, 123, 123, 0.399);
     transition: 1s;
-    border-top: 2px solid rgba(70, 70, 241, 0.616);
+    border-top: 2px solid rgba(0, 128, 128, 0.308)
 }
 .historybarhide{
     display: block;

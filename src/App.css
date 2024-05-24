@@ -6,7 +6,12 @@
   font-style: normal;
 }
 .home{
-  background-image: linear-gradient(to bottom right, rgba(2, 2, 2, 0.593), rgba(15, 17, 15, 0.741));
-  background: black;
+
+  background-image:linear-gradient(180deg, rgba(0, 0, 0, 0.604),rgba(0, 0, 0, 0.582)), url(
+'https://img.pikbest.com/wp/202347/weather-forecast-app-3d-illustration-of-icons-depicting-sun-and-clouds-ideal-for-design-web-with-blue-background_9761677.jpg!bw700');
+background-repeat: no-repeat;
+background-position: top;
+background-size: cover;
+
   min-height: 100vh;
 }
