@@ -12,9 +12,10 @@ const Search = () => {
   const [history, setHistory] = useState(false);
   const [Weather, setWeather] = useContext(myWeather);
 
+  // get cities from the open weather API
   const searchCities = async (e) => {
-    e.preventDefault()
-    setShow(true)
+    e.preventDefault();
+    setShow(true);
     try {
       const response = await axios.get(
         `https://api.openweathermap.org/geo/1.0/direct?q=${search}&limit=5&appid=${apiKey}`
@@ -24,59 +25,81 @@ const Search = () => {
       console.error(error);
     }
   };
+
   // Get weather
-  const handleWeather = async(city) => {
-    setShow(false)
-    setSearch('')
+  const handleWeather = async (city) => {
+    setShow(false);
+    setSearch("");
     let geoLocation = {
       lat: city.lat,
       lon: city.lon,
     };
+
+    // store aearched data in mongoDB data base
     setWeather(geoLocation);
-    let res = await axios.post('https://weatherappserver-w46g.onrender.com/data',{country_code:city.country,lat:city.lat,lon:city.lon,city_name:city.name})
-    console.log(res.data)
+    let res = await axios.post(
+      "https://weatherappserver-w46g.onrender.com/data",
+      {
+        country_code: city.country,
+        lat: city.lat,
+        lon: city.lon,
+        city_name: city.name,
+      }
+    );
+    console.log(res.data);
   };
 
   return (
     <div className="searchData">
-        <div className={history?"historybarshow":"historybarhide"}>
-            <History/>
-        </div>
+      <div className={history ? "historybarshow" : "historybarhide"}>
+        <History />
+      </div>
       <div className="searchbar">
-        <form onSubmit={ searchCities}>
-        <input required
-      placeholder="Search loaction here"
-        type="text"
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-      />
-      <button type="submit"><span className="material-symbols-outlined">
-search
-</span></button>
+        <form onSubmit={searchCities}>
+          <input
+            required
+            placeholder="Search loaction here"
+            type="text"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+          <button type="submit">
+            <span className="material-symbols-outlined">search</span>
+          </button>
         </form>
       </div>
-      {show?<div className="suggestions">
-        {getCity &&
-          getCity.map((city,i) => (
-            <div className="locations" key={i}
-              onClick={() => handleWeather(city)}
-              style={{ display: "flex" }}
-            >
+      {show ? (
+        <div className="suggestions">
+          {getCity &&
+            getCity.map((city, i) => (
+              <div
+                className="locations"
+                key={i}
+                onClick={() => handleWeather(city)}
+                style={{ display: "flex" }}
+              >
                 <div className="flag">
-                <img
-                  src={`https://flagsapi.com/${city.country}/flat/64.png`}
-                  alt=""
-                />
+                  <img
+                    src={`https://flagsapi.com/${city.country}/flat/64.png`}
+                    alt=""
+                  />
+                </div>
+                <p className="country-code">({city.country})</p>
+                <p className="country-location">
+                  - {city.name} <span>{city.state}</span>
+                </p>
               </div>
-              <p className="country-code">({city.country})</p>
-              <p className="country-location">- {city.name} <span>{city.state}</span></p>
-              
-            </div>
-          ))}
-      </div>:''}
-      <span onClick={()=>setHistory(!history)} className="material-symbols-outlined history">
-history
-</span>
+            ))}
+        </div>
+      ) : (
+        ""
+      )}
+      <span
+        onClick={() => setHistory(!history)}
+        className="material-symbols-outlined history"
+      >
+        history
+      </span>
     </div>
   );
 };
