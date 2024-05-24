@@ -14,7 +14,7 @@ const Search = () => {
     setShow(true)
     try {
       const response = await axios.get(
-        `http://api.openweathermap.org/geo/1.0/direct?q=${search}&limit=5&appid=${apiKey}`
+        `https://api.openweathermap.org/geo/1.0/direct?q=${search}&limit=5&appid=${apiKey}`
       );
       setGetCity(response.data);
       console.log(response.data);
