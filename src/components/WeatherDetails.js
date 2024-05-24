@@ -11,14 +11,16 @@ const WeatherDetails = () => {
 
   let CurrentDate = new Date()
   let days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat']
-  let day = 1
+  let day = days[CurrentDate.getDay()]
   let date = CurrentDate.getDate()
   let month = CurrentDate.toString().split(' ')[1]
   let year = CurrentDate.getFullYear()
-  console.log(date)
+  console.log(day)
   
   let lat;
   let lon;
+
+  // let dateForecast = new Date
   // Get weather of specific geo location
 
   const getWeather = async () => {
@@ -33,7 +35,7 @@ const WeatherDetails = () => {
      console.log('lat,lon=>',lat,lon)
    if(lat && lon){
      try {
-      let res2 = await axios.get(`https://api.weatherbit.io/v2.0/forecast/daily?days=7&lat=${lat}&lon=${lon}&key=${apiKey2}`)
+      let res2 = await axios.get(`https://api.weatherbit.io/v2.0/forecast/daily?days=8&lat=${lat}&lon=${lon}&key=${apiKey2}`)
       console.log(res2.data)
       setCountry(res2.data)
        setData(res2.data.data)
@@ -67,17 +69,17 @@ const WeatherDetails = () => {
         </div>
 
         <div className="dates">
-            <h1>{days[day]}</h1>
+            <h1>{day}</h1>
             <h2>{date} {month}</h2><span>{year}</span>
             
         </div>
         <div className="weather">
     {
-      data.map((a,i)=>
+      data.slice(1).map((a,i)=>
         <div className="card1" key={i}>
            <div className="dates">
-            <h1>{days[day < 6 && day !=0 ?day+(i+1):day]}</h1>
-            <h2>{a.datetime.split('-')[2]} {month}</h2>
+            <h1>{new Date(a.datetime.split('-')[0], a.datetime.split('-')[1]-1,a.datetime.split('-')[2]).toString().split(' ')[0]}</h1>
+            <h2>{a.datetime.split('-')[2]} {new Date(a.datetime.split('-')[0], a.datetime.split('-')[1]-1).toString().split(' ')[1]}</h2>
             <span>{a.datetime.split('-')[0]}</span>
         
         </div>
