@@ -9,7 +9,7 @@ function App() {
   const [Weather,setWeather] = useState()
   console.log('APP>>',Weather)
   return (
-    <>
+    <div className='app'>
       <myWeather.Provider value={[Weather,setWeather]}>
         <BrowserRouter>
         <Routes>
@@ -18,7 +18,7 @@ function App() {
           </Routes>
         </BrowserRouter>
       </myWeather.Provider>
-    </>
+    </div>
   );
 }
 

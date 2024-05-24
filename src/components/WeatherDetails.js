@@ -3,6 +3,7 @@ import { myWeather } from "../App";
 import axios from "axios";
 import {apiKey2 } from "../api/keys";
 import CurrentGeoLocation from "./CurrentGeoLocation";
+import '../style/WeatherDetails.css'
 const WeatherDetails = () => {
   const [Weather,setWeather] = useContext(myWeather);
   const { position } = CurrentGeoLocation();
@@ -51,28 +52,40 @@ const WeatherDetails = () => {
   }, [position,Weather]);
 
   return (
-      <div>
-      <div>
-        <div>
-            <p>Country:{country.country_code}</p>
-            <img  src={`https://flagsapi.com/${country.country_code}/flat/64.png`} alt="" />
-        </div>
-        <div>
-            <h2>CITY:{country.city_name}</h2>
-        </div>
-        {data.length?<div>
-            <h3>TEMP:{data[0].temp}</h3>
-            <h3>DEW:{data[0].dewpt}</h3>
+      <div className="weather-Details">
+      <div className="current-weather">
+          <div className="country-location-time">
+                  <div className="geo-ctry">
+                      <p>{country.country_code}</p>
+                      <img  src={`https://flagsapi.com/${country.country_code}/flat/64.png`} alt="" />
+                  </div>
+                  <div className="dates-now">
+                      <div className="DD">
+                        <p>{day}</p>
+                        <div>{date} {month} {year}</div>
+                      </div>
+                      <div className="time">
+                          <p>12:00</p>
+                          <p>PM</p>
+                      </div>
+                  </div>
+          </div>
 
-            <h3>Weather: {data[0].weather.description}</h3>
-        </div>:''}
-        </div>
-
-        <div className="dates">
-            <h1>{day}</h1>
-            <h2>{date} {month}</h2><span>{year}</span>
-            
-        </div>
+          <div className="city-location-data">
+                <h2>{country.city_name}</h2>
+                {data.length?<div className="temp-datas">
+                    <h3>TEMP:{data[0].temp}</h3>
+                    <h3>DEW:{data[0].dewpt}</h3>
+                    <p>WIND:{data[0].wind_spd} <span class="material-symbols-outlined">
+air
+</span></p>
+                    <div>
+                    <img src={`https://cdn.weatherbit.io/static/img/icons/${data[0].weather.icon}.png`} alt="" />
+                    <h3>{data[0].weather.description}</h3>
+                    </div>
+                </div>:''}
+                </div>
+           </div>
         <div className="weather">
     {
       data.slice(1).map((a,i)=>
