@@ -63,6 +63,7 @@ const WeatherDetails = () => {
                       <div className="DD">
                         <p>{day}</p>
                         <div>{date} {month} {year}</div>
+                        <span>{country.timezone}</span>
                       </div>
                       <div className="time">
                           <p>12:00</p>
@@ -70,18 +71,18 @@ const WeatherDetails = () => {
                       </div>
                   </div>
           </div>
-
+{console.log(country)}
           <div className="city-location-data">
-                <h2>{country.city_name}</h2>
+                <p>{country.city_name}</p>
                 {data.length?<div className="temp-datas">
-                    <h3>TEMP:{data[0].temp}</h3>
-                    <h3>DEW:{data[0].dewpt}</h3>
-                    <p>WIND:{data[0].wind_spd} <span class="material-symbols-outlined">
+                    <p>{data[0].temp} °c temp</p>
+                    <p>{data[0].dewpt} °c dew</p>
+                    <p>{data[0].wind_spd} wind<span class="material-symbols-outlined">
 air
 </span></p>
                     <div>
                     <img src={`https://cdn.weatherbit.io/static/img/icons/${data[0].weather.icon}.png`} alt="" />
-                    <h3>{data[0].weather.description}</h3>
+                    <p>{data[0].weather.description}</p>
                     </div>
                 </div>:''}
                 </div>
@@ -91,17 +92,17 @@ air
       data.slice(1).map((a,i)=>
         <div className="card1" key={i}>
            <div className="dates">
-            <h1>{new Date(a.datetime.split('-')[0], a.datetime.split('-')[1]-1,a.datetime.split('-')[2]).toString().split(' ')[0]}</h1>
-            <h2>{a.datetime.split('-')[2]} {new Date(a.datetime.split('-')[0], a.datetime.split('-')[1]-1).toString().split(' ')[1]}</h2>
-            <span>{a.datetime.split('-')[0]}</span>
-        
-        </div>
-          <p>Weather:{a.weather.description}</p>
-          <p>Temp:{a.temp}</p>
-          <p>dew:{a.dewpt}</p>
-          <p>maxtemp:{a.app_max_temp}</p>
+            <p>{new Date(a.datetime.split('-')[0], a.datetime.split('-')[1]-1,a.datetime.split('-')[2]).toString().split(' ')[0]}</p> 
+            <span>{a.datetime.split('-')[2]} {new Date(a.datetime.split('-')[0], a.datetime.split('-')[1]-1).toString().split(' ')[1]}</span>
+           </div>
+            <div className="weather">
+              <p>{a.temp} °c temp</p>
+              <p>{a.dewpt} °c dew</p>
+              <p>{a.app_max_temp}°c max-temp</p>
+            </div>
           <div>
             <img src={`https://cdn.weatherbit.io/static/img/icons/${a.weather.icon}.png`} alt="" />
+            <p>{a.weather.description}</p>
           </div>
           <div>
             <p>{}</p>

@@ -9,11 +9,12 @@ const Search = () => {
   const [show, setShow] = useState(false);
   const [Weather, setWeather] = useContext(myWeather);
 
-  const searchCities = async (city) => {
+  const searchCities = async (e) => {
+    e.preventDefault()
     setShow(true)
     try {
       const response = await axios.get(
-        `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${apiKey}`
+        `http://api.openweathermap.org/geo/1.0/direct?q=${search}&limit=5&appid=${apiKey}`
       );
       setGetCity(response.data);
       console.log(response.data);
@@ -36,15 +37,17 @@ const Search = () => {
   return (
     <div className="searchData">
       <div className="searchbar">
-      <input
+        <form onSubmit={ searchCities}>
+        <input required
       placeholder="Search loaction here"
         type="text"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
-      <button onClick={() => searchCities(search)}><span class="material-symbols-outlined">
+      <button type="submit"><span class="material-symbols-outlined">
 search
 </span></button>
+        </form>
       </div>
       {show?<div className="suggestions">
         {getCity &&

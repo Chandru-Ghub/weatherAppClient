@@ -1,59 +1,71 @@
 
 .searchData{
-    /* background: green; */
-    padding: 10px;
-    position: relative;
-    border-bottom: 2px solid rgba(80, 80, 245, 0.499);
+    background: rgba(74, 74, 74, 0.678);
+    position: sticky;
+    top: 0;
+    padding: 15px 0;
+    z-index: 10;
+    /* border-bottom: 2px solid rgba(80, 80, 245, 0.499); */
 }
 .searchbar{
-    background: rgb(255, 255, 255);
-    padding: 5px;
+    background: rgba(82, 81, 81, 0.622);
     width: 350px;
     display: flex;
     align-items: center;
     justify-content: space-around;
     border-radius: 5px;
-    >input{
-        padding: 10px;
-        width: 250px;
-        border: none;
-        outline: none;
-        font-size: 18px;
-        color: rgb(66, 66, 66);
-    }
-    >input::placeholder{
-        font-style: italic;
-    }
-    >button{
-        padding: 4px;
-        border: none;
-        background: none;
-        cursor: pointer;
-        transition: 1s;
-    }
-    >button:hover{
-        transform: rotate(40deg);
-        color: blue;
-    }
-    >button:active{
-        transform: scale(1.2);
+    margin-left: 30px;
+    border: 1px solid rgb(91, 91, 91);
+    >form{
+        display: flex;
+        >input{
+            padding: 10px;
+            width: 250px;
+            border: none;
+            outline: none;
+            font-size: 18px;
+            color: rgb(255, 255, 255);
+            background: transparent;
+
+        }
+        >input::placeholder{
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.659);
+        }
+        >button{
+            padding: 4px;
+            border: none;
+            background: none;
+            cursor: pointer;
+            transition: 1s;
+            color: rgba(255, 255, 255, 0.773);
+            padding: 8px;
+        }
+        >button:hover{
+            transform: rotate(40deg);
+            color: blue;
+        }
+        >button:active{
+            transform: scale(1.2);
+        }
     }
 }
 .suggestions{
     position: absolute;
     z-index: 100;
     min-width: 350px;
-    background: rgb(255, 255, 255);
-    border: 2px solid rgba(104, 104, 104, 0.262);
+    background: rgb(211, 210, 210);
+    border: 1px solid rgba(46, 46, 46, 0.57);
     border-radius: 5px;
     display: flex;
     flex-direction: column;
     gap: 2px;
-    box-shadow: 2px 5px 20px rgb(223, 223, 223);
+    left: 30px;
+    box-shadow: 2px 2px 0px rgba(223, 223, 223, 0.911);
 }
 .locations{
     cursor: pointer;
-    background: rgb(255, 255, 255);
+    background: rgb(222, 222, 222);
     display: flex;
     gap: 10px;
     padding: 10px;

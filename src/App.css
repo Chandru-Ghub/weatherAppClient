@@ -6,13 +6,6 @@
   font-style: normal;
 }
 .home{
-  background: rgba(0, 0, 0, 0.785);
-  /* height: 100vh; */
-  /* background:linear-gradient(rgba(56, 60, 61, 0.645),rgba(124, 123, 123, 0.525)) ,
-  url(' https://static.vecteezy.com/system/resources/previews/042/195/725/non_2x/ai-generated-rainy-sky-background-free-photo.jpg');
-
-background-position: center;
-background-repeat: no-repeat;
-background-clip: cover; */
-
+  background-image: linear-gradient(to bottom right, rgba(2, 2, 2, 0.593), rgba(15, 17, 15, 0.741));
+  background: black;
 }
