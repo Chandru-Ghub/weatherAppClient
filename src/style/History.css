@@ -1,0 +1,53 @@
+.data-history{
+    width: 280px;
+    color: white;
+
+    .locations{
+        cursor: pointer;
+        background: rgb(17, 17, 17);
+        display: flex;
+        gap: 10px;
+        padding: 10px;
+        align-items: center;
+        justify-content: start;
+        border-bottom: 1px solid rgba(61, 61, 61, 0.393);
+        >.country-location{
+            font-weight: 400;
+            text-transform: uppercase;
+            color: rgb(161, 161, 161);
+            font-size: 14px;
+            >span{
+                font-style: italic;
+                font-size: 13px;
+                color: rgb(21, 8, 200);
+            }
+        }
+        >.country-code{
+            font-weight: 500;
+            font-size: 13px;
+        }
+    }
+}
+
+.historybarshow{
+    display: block;
+    position: fixed;
+    height: 100vh;
+    z-index: 1000;
+    top:80px;
+    right:0;
+    background: rgb(17, 17, 17);
+    transition: 1s;
+    border-top: 2px solid rgba(70, 70, 241, 0.616);
+}
+.historybarhide{
+    display: block;
+    position: fixed;
+    height: 100vh;
+    z-index: 1000;
+    top:80px;
+    right:-1000px;
+    transition: 1s;
+    border-top: 2px solid rgba(70, 70, 241, 0.616);
+}
+

@@ -8,4 +8,5 @@
 .home{
   background-image: linear-gradient(to bottom right, rgba(2, 2, 2, 0.593), rgba(15, 17, 15, 0.741));
   background: black;
+  min-height: 100vh;
 }

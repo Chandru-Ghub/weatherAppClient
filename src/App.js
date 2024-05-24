@@ -7,7 +7,6 @@ import CurrentGeoLocation from './components/CurrentGeoLocation';
 export const myWeather = createContext()
 function App() {
   const [Weather,setWeather] = useState()
-  console.log('APP>>',Weather)
   return (
     <div className='app'>
       <myWeather.Provider value={[Weather,setWeather]}>

@@ -1,21 +1,33 @@
 
 .searchData{
-    background: rgba(74, 74, 74, 0.678);
     position: sticky;
     top: 0;
     padding: 15px 0;
     z-index: 10;
-    /* border-bottom: 2px solid rgba(80, 80, 245, 0.499); */
+    display: flex;
+    align-items: center;
+}
+.history{
+    color: #9a9a9a;
+    margin-right: 30px;
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+}
+.history:hover{
+    color: #ffffff;
+    margin-right: 30px;
 }
 .searchbar{
-    background: rgba(82, 81, 81, 0.622);
+    background: rgba(28, 28, 28, 0.622);
     width: 350px;
     display: flex;
     align-items: center;
     justify-content: space-around;
     border-radius: 5px;
     margin-left: 30px;
-    border: 1px solid rgb(91, 91, 91);
+    border: 1px solid rgba(179, 178, 178, 0.201);
+    box-shadow: 0px 0px 8px rgba(70, 70, 241, 0.816);
     >form{
         display: flex;
         >input{
@@ -24,13 +36,13 @@
             border: none;
             outline: none;
             font-size: 18px;
-            color: rgb(255, 255, 255);
+            color: rgb(226, 226, 226);
             background: transparent;
-
+            font-weight: 200;
         }
         >input::placeholder{
-            font-style: italic;
             color: rgba(255, 255, 255, 0.659);
+            font-weight: 200;
         }
         >button{
             padding: 4px;
@@ -44,6 +56,7 @@
         >button:hover{
             transform: rotate(40deg);
             color: blue;
+            
         }
         >button:active{
             transform: scale(1.2);
@@ -54,40 +67,43 @@
     position: absolute;
     z-index: 100;
     min-width: 350px;
-    background: rgb(211, 210, 210);
-    border: 1px solid rgba(46, 46, 46, 0.57);
+    background: rgb(18, 18, 18);
+    /* border: 1px solid rgba(46, 46, 46, 0.57); */
     border-radius: 5px;
     display: flex;
     flex-direction: column;
     gap: 2px;
     left: 30px;
-    box-shadow: 2px 2px 0px rgba(223, 223, 223, 0.911);
+    top: 60px;
+    /* box-shadow: 2px 2px 0px rgba(223, 223, 223, 0.911); */
 }
 .locations{
     cursor: pointer;
-    background: rgb(225, 224, 224);
+    background:transparent;
     display: flex;
     gap: 10px;
     padding: 10px;
     align-items: center;
     justify-content: start;
-    border-bottom: 2px solid rgba(217, 217, 217, 0.393);
+    border-bottom: 1px solid rgba(59, 59, 59, 0.393);
     >.country-location{
-        font-weight: 600;
+        font-weight: 400;
         text-transform: uppercase;
-        color: rgb(116, 116, 116);
+        color: rgb(148, 148, 148);
+        font-size: 14px;
         >span{
             font-style: italic;
-            font-size: 13px;
-            color: rgb(21, 8, 200);
+            font-size: 12px;
+            color: rgb(71, 71, 249);
         }
     }
     >.country-code{
         font-weight: 500;
+        color: rgb(199, 198, 198);
     }
 }
 .locations:hover{
-    opacity: .5;
+    opacity: .8;
 }
 .flag{
     >img{
@@ -95,5 +111,68 @@
     }
 }
 
+@media(max-width:500px){
 
+    .searchbar{
+        background: rgba(28, 28, 28, 0.622);
+        width: 250px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        border-radius: 5px;
+        margin-left: 30px;
+        border: 1px solid rgba(179, 178, 178, 0.201);
+        box-shadow: 0px 0px 8px rgba(70, 70, 241, 0.816);
+        >form{
+            display: flex;
+            >input{
+                padding: 8px;
+                width: 200px;
+                border: none;
+                outline: none;
+                font-size: 15px;
+                color: rgb(226, 226, 226);
+                font-weight: 200;
+            }
+            >input::placeholder{
+                color: rgba(255, 255, 255, 0.659);
+                font-weight: 200;
+            }
+         
+        }
+    }
+
+}
+@media(max-width:380px){
+
+    .searchbar{
+        background: rgba(28, 28, 28, 0.622);
+        width: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        border-radius: 5px;
+        margin-left: 30px;
+        border: 1px solid rgba(179, 178, 178, 0.201);
+        box-shadow: 0px 0px 8px rgba(70, 70, 241, 0.816);
+        >form{
+            display: flex;
+            >input{
+                padding: 8px;
+                width: 160px;
+                border: none;
+                outline: none;
+                font-size: 13px;
+                color: rgb(226, 226, 226);
+                font-weight: 200;
+            }
+            >input::placeholder{
+                color: rgba(255, 255, 255, 0.659);
+                font-weight: 200;
+            }
+         
+        }
+    }
+
+}
 
