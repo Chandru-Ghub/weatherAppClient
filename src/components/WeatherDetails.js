@@ -4,6 +4,7 @@ import axios from "axios";
 import { apiKey2 } from "../api/keys";
 import CurrentGeoLocation from "./CurrentGeoLocation";
 import "../style/WeatherDetails.css";
+import progress from '../images/progress.gif'
 const WeatherDetails = () => {
   const [Weather, setWeather] = useContext(myWeather);
   const { position } = CurrentGeoLocation();
@@ -56,14 +57,15 @@ const WeatherDetails = () => {
   }, [position, Weather]);
 
   return (
-    <div className="weather-Details">
+      <div>
+        {data.length?<div className="weather-Details">
       <div className="current-weather">
         <div className="city-location-data">
           <p>
-            {country.city_name}{" "}
+            {country.city_name?country.city_name:'Location'}
             <span className="material-symbols-outlined">location_on</span>
           </p>
-          {data.length ? (
+          {data.length ? 
             <div className="temp-datas">
               <p>{data[0].temp} °c temp</p>
               <p>{data[0].dewpt} °c dew</p>
@@ -79,9 +81,7 @@ const WeatherDetails = () => {
                 <p>{data[0].weather.description}</p>
               </div>
             </div>
-          ) : (
-            ""
-          )}
+          : ''}
         </div>
         <div className="country-location-time">
           <div className="geo-ctry">
@@ -108,7 +108,7 @@ const WeatherDetails = () => {
       </div>
       <div className="daily-forecast">
       <div className="weather">
-        {data.slice(1).map((a, i) => (
+        {data&&data.slice(1).map((a, i) => (
           <div className="card1" key={i}>
             <div className="dates">
               <p>
@@ -141,8 +141,12 @@ const WeatherDetails = () => {
           </div>
         ))}
       </div>
-        </div>
-    </div>
+      </div>
+      </div>:<div className="progress">
+        <img src={progress} alt="" />
+        <div>Loading...</div>
+        </div>}
+      </div>
   );
 };
 

@@ -94,7 +94,7 @@ const Search = () => {
       ) : (
         ""
       )}
-      <span
+      <span title="search history"
         onClick={() => setHistory(!history)}
         className="material-symbols-outlined history"
       >

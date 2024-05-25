@@ -6,10 +6,25 @@
   font-style: normal;
 }
 .app{
-
+  min-height: 100vh;
   background-image:linear-gradient(180deg, rgba(0, 0, 0, 0.604),rgba(0, 0, 0, 0.582)), url(
 'https://img.pikbest.com/wp/202347/weather-forecast-app-3d-illustration-of-icons-depicting-sun-and-clouds-ideal-for-design-web-with-blue-background_9761677.jpg!bw700');
 background-repeat: no-repeat;
 background-position: top;
 background-size: cover;
+}
+.progress{
+  background: rgb(255, 255, 255);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  >div{
+    color: teal;
+  }
 }

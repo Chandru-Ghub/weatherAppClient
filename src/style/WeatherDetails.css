@@ -37,7 +37,7 @@
             font-size: 45px;
             padding-bottom: 10px;
             font-weight: 300;
-            text-transform: uppercase;
+            text-transform: capitalize;
             color: rgba(70, 70, 241, 0.816);
         }
         >div, span{
@@ -78,6 +78,9 @@
     color: rgb(255, 255, 255);
     position: relative;
     background: rgba(140, 140, 140, 0.081);
+    /* background: red; */
+    width: 309px;
+    height: 329px;
     >p{
         font-size: 40px;
         font-weight: 400;
@@ -160,7 +163,7 @@
         justify-content: center;
         font-weight: 300;
         flex-direction: column;
-        width: 100px;
+        width: 150px;
         /* background: red; */
         >img{
             width: 70px;
