@@ -1,6 +1,6 @@
 
 .searchData{
-    position: sticky;
+    /* position: sticky; */
     top: 0;
     padding: 15px 0;
     z-index: 10;
@@ -115,15 +115,14 @@
 @media(max-width:500px){
 
     .searchbar{
-        background: rgba(28, 28, 28, 0.622);
+        background: rgba(140, 140, 140, 0.081);
         width: 250px;
         display: flex;
         align-items: center;
         justify-content: space-around;
         border-radius: 5px;
         margin-left: 30px;
-        border: 1px solid rgba(179, 178, 178, 0.201);
-        box-shadow: 0px 0px 8px rgba(70, 70, 241, 0.816);
+        border: 1px solid rgba(70, 70, 241, 0.171);
         >form{
             display: flex;
             >input{
@@ -156,15 +155,14 @@
 @media(max-width:380px){
 
     .searchbar{
-        background: rgba(28, 28, 28, 0.622);
+        background: rgba(140, 140, 140, 0.081);
         width: 200px;
         display: flex;
         align-items: center;
         justify-content: space-around;
         border-radius: 5px;
         margin-left: 30px;
-        border: 1px solid rgba(179, 178, 178, 0.201);
-        box-shadow: 0px 0px 8px rgba(70, 70, 241, 0.816);
+        border: 1px solid rgba(70, 70, 241, 0.171);
         >form{
             display: flex;
             >input{

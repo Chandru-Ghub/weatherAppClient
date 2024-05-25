@@ -106,6 +106,7 @@ const WeatherDetails = () => {
           </div>
         </div>
       </div>
+      <div className="daily-forecast">
       <div className="weather">
         {data.slice(1).map((a, i) => (
           <div className="card1" key={i}>
@@ -140,6 +141,7 @@ const WeatherDetails = () => {
           </div>
         ))}
       </div>
+        </div>
     </div>
   );
 };
