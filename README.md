@@ -1,4 +1,4 @@
-# React Weateher Application 
+# React Weather Application 
 #Vercel Deployed URL 
 https://weather-app-client-ivory.vercel.app/
 We can search weather based on the city
