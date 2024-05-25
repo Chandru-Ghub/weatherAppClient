@@ -14,17 +14,16 @@ const Search = () => {
 
   // get cities from the open weather API
   const searchCities = async (e) => {
+    e.preventDefault()
     let value = e.target.value
     setSearch(value)
     setShow(true);
     if(value.trim()!== ''){
       try {
         const response = await axios.get(
-          `https://api.openweathermap.org/geo/1.0/direct?q=${value}&limit=5&appid=${apiKey}`
-        );
-        let filteredDate = response.data.filter((item)=>item.name.toLowerCase().includes(value.toLowerCase()))
+          `https://api.openweathermap.org/geo/1.0/direct?q=${value}&limit=5&appid=${apiKey}`);
+        let filteredDate = response.data.filter((item)=> item.name.toLowerCase().includes(value.toLowerCase()))
         setGetCity(filteredDate);
-        console.log(filteredDate)
       } catch (error) {
         console.error(error);
       }
@@ -64,7 +63,7 @@ const Search = () => {
         <History />
       </div>
       <div className="searchbar">
-        <form>
+        <div>
           <input
             required
             placeholder="Search loaction here"
@@ -72,10 +71,10 @@ const Search = () => {
             value={search}
             onChange={searchCities}
           />
-          <button type="submit">
+          <button>
             <span className="material-symbols-outlined">search</span>
           </button>
-        </form>
+        </div>
       </div>
       {show ? (
         <div className="suggestions">

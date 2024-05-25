@@ -32,7 +32,7 @@
     border-radius: 5px;
     margin-left: 30px;
     border: 1px solid rgba(70, 70, 241, 0.171);
-    >form{
+    >div{
         display: flex;
         >input{
             padding: 10px;
@@ -122,7 +122,7 @@
         border-radius: 5px;
         margin-left: 30px;
         border: 1px solid rgba(70, 70, 241, 0.171);
-        >form{
+        >div{
             display: flex;
             >input{
                 padding: 8px;
@@ -162,7 +162,7 @@
         border-radius: 5px;
         margin-left: 30px;
         border: 1px solid rgba(70, 70, 241, 0.171);
-        >form{
+        >div{
             display: flex;
             >input{
                 padding: 8px;
