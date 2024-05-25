@@ -122,8 +122,8 @@
                 width: 80px;
             }
             >p{
-                color: rgba(70, 70, 241, 0.816);
-                font-size: 15px;
+                color: rgb(255, 255, 255);
+                font-size: 17px;
                 font-weight: 300;
             }
         }
@@ -157,7 +157,7 @@
         justify-content: center;
         font-weight: 300;
         flex-direction: column;
-        /* background: red; */
+        width: 150px;
         >img{
             width: 70px;
         }
@@ -261,7 +261,6 @@
             justify-content: center;
             font-weight: 300;
             flex-direction: column;
-            /* background: red; */
             width: 100px;
             >img{
                 width: 50px;

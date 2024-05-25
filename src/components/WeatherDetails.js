@@ -16,7 +16,6 @@ const WeatherDetails = () => {
   let date = CurrentDate.getDate();
   let month = CurrentDate.toString().split(" ")[1];
   let year = CurrentDate.getFullYear();
-
   let lat;
   let lon;
   let time = new Date().toLocaleTimeString();
@@ -102,7 +101,7 @@ const WeatherDetails = () => {
               <span>{country.timezone}</span>
             </div>
             <div className="time">
-              <p>{ctime.slice(0, 5)}</p>
+              <p>{ctime.slice(0, 4)}</p>
               <p>{ctime.slice(8, 11)}</p>
             </div>
           </div>
