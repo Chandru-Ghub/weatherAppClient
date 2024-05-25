@@ -27,7 +27,6 @@ const WeatherDetails = () => {
     setTime(time);
   };
   setInterval(UpdateTime);
-
   // get weather forecast data for 7days
   const getWeather = async () => {
     if (Weather) {
@@ -101,8 +100,8 @@ const WeatherDetails = () => {
               <span>{country.timezone}</span>
             </div>
             <div className="time">
-              <p>{ctime.slice(0, 4)}</p>
-              <p>{ctime.slice(8, 11)}</p>
+              <p>{time.split(':')[0]}:{time.split(':')[1]}</p>
+              <p>{time.split(':')[2].split(' ')[1]}</p>
             </div>
           </div>
         </div>
