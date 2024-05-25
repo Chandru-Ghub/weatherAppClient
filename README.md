@@ -1,8 +1,8 @@
-# Weateher Application 
+# React Weateher Application 
 #Vercel Deployed URL 
-
-# We can search weather based on the city
-# we can get the history of searched cities from the mongoDB data base
+https://weather-app-client-ivory.vercel.app/
+We can search weather based on the city
+we can get the history of searched cities from the mongoDB data base
 # Current location weather details 
 
 
