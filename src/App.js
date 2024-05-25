@@ -1,6 +1,7 @@
 import { createContext, useState } from 'react';
 import './App.css';
-import Home from './components/Home';
+import WeatherDetails from './components/WeatherDetails';
+import Search from './components/Search';
 export const myWeather = createContext()
 function App() {
   const [Weather,setWeather] = useState()
@@ -8,7 +9,8 @@ function App() {
   return (
     <div className='app'>
       <myWeather.Provider value={[Weather,setWeather]}>
-         <Home/>
+      <Search/>
+      <WeatherDetails/>
       </myWeather.Provider>
     </div>
   );
