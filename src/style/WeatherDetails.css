@@ -47,7 +47,7 @@
         }
     }
     >.time{
-        /* background: blue; */
+        color: rgba(255, 255, 255, 0.449);
         display: flex;
         align-items: center;
         justify-content: center;

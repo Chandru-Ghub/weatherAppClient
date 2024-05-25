@@ -1,6 +1,6 @@
 .data-history{
     width: 280px;
-    color: white;
+    color: rgb(255, 255, 255);
 
     .locations{
         cursor: pointer;
@@ -13,7 +13,7 @@
         >.country-location{
             font-weight: 400;
             text-transform: uppercase;
-            color: rgb(161, 161, 161);
+            color: rgb(211, 209, 209);
             font-size: 14px;
             >span{
                 font-style: italic;
@@ -35,7 +35,7 @@
     z-index: 1000;
     top:80px;
     right:0;
-    background: rgba(123, 123, 123, 0.399);
+    background: rgba(6, 116, 135, 0.619);
     transition: 1s;
     border-top: 2px solid rgba(0, 128, 128, 0.308)
 }
@@ -50,3 +50,6 @@
     border-top: 2px solid rgba(70, 70, 241, 0.616);
 }
 
+@media(max-width:1000px){
+    
+}
