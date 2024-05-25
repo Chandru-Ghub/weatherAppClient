@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import "../style/History.css";
 import axios from "axios";
 import { myWeather } from "../App";
-
+import progress from '../images/progress.gif'
 const History = () => {
   const [getCity, setGetCity] = useState([]);
   const [Weather, setWeather] = useContext(myWeather);
@@ -33,7 +33,7 @@ const History = () => {
   };
   return (
     <div className="data-history">
-      {getCity &&
+      {getCity.length?
         getCity.map((city, i) => (
           <div
             key={i}
@@ -50,7 +50,12 @@ const History = () => {
             <p className="country-code">({city.country_code})</p>
             <p className="country-location">- {city.city_name}</p>
           </div>
-        ))}
+        )):<div className="progress2">
+          <div>
+          <img src={progress} alt="" />
+          <div>Loading...</div>
+          </div>
+        </div>}
     </div>
   );
 };

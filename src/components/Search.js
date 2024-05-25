@@ -8,21 +8,29 @@ import History from "./History";
 const Search = () => {
   const [search, setSearch] = useState("");
   const [getCity, setGetCity] = useState([]);
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(true);
   const [history, setHistory] = useState(false);
   const [Weather, setWeather] = useContext(myWeather);
 
   // get cities from the open weather API
   const searchCities = async (e) => {
-    e.preventDefault();
+    let value = e.target.value
+    setSearch(value)
     setShow(true);
-    try {
-      const response = await axios.get(
-        `https://api.openweathermap.org/geo/1.0/direct?q=${search}&limit=5&appid=${apiKey}`
-      );
-      setGetCity(response.data);
-    } catch (error) {
-      console.error(error);
+    if(value.trim()!== ''){
+      try {
+        const response = await axios.get(
+          `https://api.openweathermap.org/geo/1.0/direct?q=${value}&limit=5&appid=${apiKey}`
+        );
+        let filteredDate = response.data.filter((item)=>item.name.toLowerCase().includes(value.toLowerCase()))
+        setGetCity(filteredDate);
+        console.log(filteredDate)
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    else{
+      setShow(false)
     }
   };
 
@@ -30,6 +38,7 @@ const Search = () => {
   const handleWeather = async (city) => {
     setShow(false);
     setSearch("");
+    console.log(city)
     let geoLocation = {
       lat: city.lat,
       lon: city.lon,
@@ -55,13 +64,13 @@ const Search = () => {
         <History />
       </div>
       <div className="searchbar">
-        <form onSubmit={searchCities}>
+        <form>
           <input
             required
             placeholder="Search loaction here"
             type="text"
             value={search}
-            onChange={(e) => setSearch(e.target.value)}
+            onChange={searchCities}
           />
           <button type="submit">
             <span className="material-symbols-outlined">search</span>

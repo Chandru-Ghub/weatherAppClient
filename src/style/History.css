@@ -1,7 +1,7 @@
 .data-history{
     width: 280px;
     color: rgb(255, 255, 255);
-
+    position: relative;
     .locations{
         cursor: pointer;
         display: flex;
@@ -35,10 +35,15 @@
     z-index: 1000;
     top:80px;
     right:0;
-    background: rgba(6, 116, 135, 0.619);
+    /* background: rgba(6, 116, 135, 0.619); */
+    background: rgba(0, 128, 128, 0.96);
     transition: 1s;
-    border-top: 2px solid rgba(0, 128, 128, 0.308)
+    border-top: 2px solid rgba(0, 128, 128, 0.308);
+    overflow:scroll;
 }
+.historybarshow::-webkit-scrollbar {
+    display: none;
+  }
 .historybarhide{
     display: block;
     position: fixed;
@@ -49,7 +54,18 @@
     transition: 1s;
     border-top: 2px solid rgba(70, 70, 241, 0.616);
 }
-
-@media(max-width:1000px){
-    
-}
+.progress2{
+    background: rgb(255, 255, 255);
+    /* height: 100vh; */
+    >div{
+      color: teal;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100vh;
+      justify-content: center;
+      >div{
+        font-size: 14px;
+      }
+    }
+  }

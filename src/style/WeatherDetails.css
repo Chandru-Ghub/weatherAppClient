@@ -75,7 +75,7 @@
 }
 
 .city-location-data{
-    color: rgb(255, 255, 255);
+    color: rgba(255, 255, 255, 0.656);
     position: relative;
     background: rgba(140, 140, 140, 0.081);
     /* background: red; */
@@ -85,7 +85,7 @@
         font-size: 40px;
         font-weight: 400;
         >span{
-            color: rgba(70, 70, 241, 0.816);
+            color: rgba(70, 70, 241, 0.723);
             font-weight: 100;
             font-size: 35px;
         }

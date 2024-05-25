@@ -135,9 +135,6 @@ const WeatherDetails = () => {
               />
               <p>{a.weather.description}</p>
             </div>
-            <div>
-              <p>{}</p>
-            </div>
           </div>
         ))}
       </div>
