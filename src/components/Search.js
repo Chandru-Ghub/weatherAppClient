@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import "../style/Search.css";
 import "../style/History.css";
@@ -13,37 +13,45 @@ const Search = () => {
   const [Weather, setWeather] = useContext(myWeather);
 
   // get cities from the open weather API
-  const searchCities = async (e) => {
-    e.preventDefault()
-    let value = e.target.value
-    setSearch(value)
+  const searchCities = async () => {
     setShow(true);
-    if(value.trim()!== ''){
       try {
         const response = await axios.get(
-          `https://api.openweathermap.org/geo/1.0/direct?q=${value}&limit=5&appid=${apiKey}`);
-        let filteredDate = response.data.filter((item)=> item.name.toLowerCase().includes(value.toLowerCase()))
+          `https://api.openweathermap.org/geo/1.0/direct?q=${search}&limit=10&appid=${apiKey}`);
+        let filteredDate = response.data.filter((item)=> item.name.toLowerCase().includes(search.toLowerCase()))
         setGetCity(filteredDate);
       } catch (error) {
         console.error(error);
       }
-    }
-    else{
-      setShow(false)
-    }
+    
   };
+
+  // Debouncing Techinique
+  /// check from search input if exists call the function
+  useEffect(()=>{
+
+    let timer = setTimeout(()=>{
+      if(search.trim()!== '')
+          searchCities()
+      else
+        setShow(false)
+
+    },[400])
+
+    //cleanup function
+    return ()=> clearTimeout(timer)
+  },[search])
 
   // Get weather
   const handleWeather = async (city) => {
     setShow(false);
     setSearch("");
-    console.log(city)
     let geoLocation = {
       lat: city.lat,
       lon: city.lon,
     };
 
-    // store aearched data in mongoDB data base
+    // store searched data in mongoDB data base
     setWeather(geoLocation);
     let res = await axios.post(
       "https://weatherappserver-w46g.onrender.com/data",
@@ -69,7 +77,12 @@ const Search = () => {
             placeholder="Search loaction here"
             type="text"
             value={search}
-            onChange={searchCities}
+            onChange={(e)=>setSearch(e.target.value)}
+            onBlur={()=>{
+              setTimeout(()=>{
+                  setShow(false)
+              },100)
+            }}
           />
           <button>
             <span className="material-symbols-outlined">search</span>
